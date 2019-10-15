@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/plovr/plovr-docker/plovr-docker:docker-base-layer
+FROM docker.pkg.github.com/plovr/plovr-docker/plovr-docker:latest
 
 ADD . /plovr
 
