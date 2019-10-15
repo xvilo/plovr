@@ -1,4 +1,4 @@
-FROM nicks/plovr-deps
+FROM docker.pkg.github.com/plovr/plovr-docker/plovr-docker:docker-base-layer
 
 ADD . /plovr
 
