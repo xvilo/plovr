@@ -20,7 +20,7 @@ java_library(
     '//tools/imports:revs',
     ':third-party-support-libs',
     '//third-party:COMPILE',
-    '//closure/closure-library:closure-library',
+    '//closure/closure-library:closure-library'
   ],
 )
 

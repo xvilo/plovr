@@ -1,27 +1,25 @@
 package org.plovr;
 
-import java.util.Map;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.javascript.jscomp.DiagnosticGroup;
 import com.google.javascript.jscomp.DiagnosticGroups;
 import com.google.javascript.jscomp.DiagnosticType;
 
+import java.util.Map;
+
 public class PlovrDiagnosticGroups extends DiagnosticGroups {
 
   private static class AbsurdHackForDiagnosticGroups extends DiagnosticGroups {
-    @Override
-    public Map<String, DiagnosticGroup> getRegisteredGroups() {
-      return super.getRegisteredGroups();
+    public static Map<String, DiagnosticGroup> getRegisteredGroups() {
+      return DiagnosticGroups.getRegisteredGroups();
     }
   }
 
   private final static Map<String, DiagnosticGroup> globalGroupsByName =
       new AbsurdHackForDiagnosticGroups().getRegisteredGroups();
 
-  private final Map<String, DiagnosticGroup> groupsByName =
-    Maps.newHashMap();
+  private static Map<String, DiagnosticGroup> groupsByName = Maps.newHashMap();
 
   public PlovrDiagnosticGroups() {
     groupsByName.putAll(globalGroupsByName);
@@ -56,13 +54,11 @@ public class PlovrDiagnosticGroups extends DiagnosticGroups {
     return group;
   }
 
-  @Override
-  public Map<String, DiagnosticGroup> getRegisteredGroups() {
+  public static Map<String, DiagnosticGroup> getRegisteredGroups() {
     return ImmutableMap.copyOf(groupsByName);
   }
 
-  @Override
-  public DiagnosticGroup forName(String name) {
+  public static DiagnosticGroup forName(String name) {
     return groupsByName.get(name);
   }
 }

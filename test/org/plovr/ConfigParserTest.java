@@ -172,7 +172,8 @@ public class ConfigParserTest {
             "../../third-party/javascript/soyutils_usegoog.js",
             "custom/foo/bar.soy",
             "main/foo/bar.soy",
-            "main.js"),
+            "main.js"
+        ),
         inputNames);
   }
 
